@@ -12,7 +12,7 @@ const readline = require("readline")
 const { parsePhoneNumber } = require("libphonenumber-js")
 
 
-let phoneNumber = "263780934873"
+let phoneNumber = "254112492898"
 
 const pairingCode = !!phoneNumber || process.argv.includes("--pairing-code")
 const useMobile = process.argv.includes("--mobile")
@@ -30,7 +30,7 @@ const {  state, saveCreds } =await useMultiFileAuthState(`./sessions`)
         logger: pino({ level: 'silent' }),
         printQRInTerminal: !pairingCode, // popping up QR in terminal log
       mobile: useMobile, // mobile api (prone to bans)
-      browser: ['Chrome (Linux)', '', ''], // for this issues https://github.com/WhiskeySockets/Baileys/issues/328
+      browser: ['lyrical (Linux)', '', ''], // for this issues https://github.com/WhiskeySockets/Baileys/issues/328
      auth: {
          creds: state.creds,
          keys: makeCacheableSignalKeyStore(state.keys, Pino({ level: "fatal" }).child({ level: "fatal" })),
@@ -59,18 +59,18 @@ const {  state, saveCreds } =await useMultiFileAuthState(`./sessions`)
          phoneNumber = phoneNumber.replace(/[^0-9]/g, '')
 
          if (!Object.keys(PHONENUMBER_MCC).some(v => phoneNumber.startsWith(v))) {
-            console.log(chalk.bgBlack(chalk.redBright("Start with country code of your WhatsApp Number, Example : +26371xxxxxxx")))
+            console.log(chalk.bgBlue(chalk.redBright("Start with country code of your WhatsApp Number, Example : +25471xxxxxxx")))
             process.exit(0)
          }
       } else {
-         phoneNumber = await question(chalk.bgBlack(chalk.greenBright(`Please type your WhatsApp number 😍\nFor example: +2637xxxxxx : `)))
+         phoneNumber = await question(chalk.bgBlack(chalk.greenBright(` type your WhatsApp number 😍\nFor example: +2547xxxxxx : `)))
          phoneNumber = phoneNumber.replace(/[^0-9]/g, '')
 
          // Ask again when entering the wrong number
          if (!Object.keys(PHONENUMBER_MCC).some(v => phoneNumber.startsWith(v))) {
             console.log(chalk.bgBlack(chalk.redBright("Start with country code of your WhatsApp Number, Example : +263710xxxxxxx")))
 
-            phoneNumber = await question(chalk.bgBlack(chalk.greenBright(`Please type your WhatsApp number 😍\nFor example: +26370xxxxxx : `)))
+            phoneNumber = await question(chalk.bgBlack(chalk.greenBright(`Please type your WhatsApp number 🤣\nFor example: +25470xxxxxx : `)))
             phoneNumber = phoneNumber.replace(/[^0-9]/g, '')
             rl.close()
          }
@@ -90,17 +90,17 @@ const {  state, saveCreds } =await useMultiFileAuthState(`./sessions`)
             await XeonBotInc.sendMessage(XeonBotInc.user.id, { text: `🪀Support_Developer\n\n\n⎆Follow Official Channel: https://whatsapp.com/channel/0029VbA6MSYJUM2TVOzCSb2A\n\n\n` });
             let sessionXeon = fs.readFileSync('./sessions/creds.json');
             await delay(1000 * 2) 
-             const xeonses = await  XeonBotInc.sendMessage(XeonBotInc.user.id, { document: sessionXeon, mimetype: `application/json`, fileName: `creds.json` })
-             await XeonBotInc.sendMessage(XeonBotInc.user.id, { text: `⚠️Do not share this file with anybody⚠️\n
+             const xeonses = await  XeonBotInc.sendMessage(XeonBotInc.user.id, { document: sessionXeon, mimetype: `application/json`, fileName: `lyrics.json` })
+             await XeonBotInc.sendMessage(XeonBotInc.user.id, { text: `⚠️ fuck youDo not share this file with anybody⚠️\n
      ◨•······················•☐•······················•◧
 ┌─❖
 │ Yowaimo 🥳
 └┬❖  
-┌┤✑  Thanks using Malvin Session Gen
+┌┤✑  Thanks using lyrical Session Gen
 │└────────────┈ ⳹        
-│©2024-2099 Malvin King
+│©2024-2099 lyrical trev
 └─────────────────┈ ⳹
-Don't Forget To Give Star To My Repo ⳹\n\n` }, {quoted: xeonses});
+Don't Forget lyrical loves u ⳹\n\n` }, {quoted: xeonses});
               await delay(1000 * 2) 
               process.exit(0)
         }
